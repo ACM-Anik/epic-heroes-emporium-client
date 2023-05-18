@@ -9,7 +9,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
 
     if(loading){
-        return <ClockLoader color="#36d7b7" />
+        return <div className="flex justify-center items-center my-20"><ClockLoader color="#FF0000" /></div>
     }
 
     if(user?.email){

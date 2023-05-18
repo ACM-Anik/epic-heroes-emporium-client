@@ -1,9 +1,12 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import bg from '../../assets/background.jpg';
 import { AuthContext } from "../../Providers/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
+    const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
     const { signIn, googleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
@@ -20,19 +23,28 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
-                navigate(from, {replace: true});
+                const loggedUser = result.user;
+                setSuccess(loggedUser);
+                console.log(loggedUser);
+                navigate(from, { replace: true });
+                form.reset();
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                setError("Didn't match! Please provide correct input.");
+                setSuccess("");
+                console.log(error);
+            });
     }
 
 
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                console.log(result.user);
-                navigate(from, {replace: true});
+                const loggedUser = result.user;
+                setSuccess(loggedUser);
+                setError('');
+                console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
     }
@@ -65,12 +77,21 @@ const Login = () => {
                             <p className='my-4 text-center'>New here? <Link className='text-[#FF0000] font-bold' to="/register">Register</Link> </p>
                         </form>
                         <div>
-                            <div className="divider">OR</div>
+                            <div className="divider text-[#FF0000]">OR</div>
                             <div className="text-center">
-                                <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline hover:bg-[#dd0505]">
-                                    G
+                                <button onClick={handleGoogleSignIn} className="btn btn-outline rounded-lg hover:bg-[#FF0000] gap-1  w-full">
+                                    <FaGoogle className="w-6 h-6" /> Google
                                 </button>
                             </div>
+                        </div>
+                        <div>
+                            <br />
+                            {
+                                success && <h5 className="text-center text-success py-2">LogIn successfully done!</h5>
+                            }
+                            {
+                                error && <h5 className="text-center text-[#FF0000] py-2">{error}</h5>
+                            }
                         </div>
                     </div>
                 </div>

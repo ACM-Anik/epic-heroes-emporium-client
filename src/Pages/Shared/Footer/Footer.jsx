@@ -4,8 +4,7 @@ const Footer = () => {
         <footer className="footer py-10 px-5 bg-base-200 text-base-content">
             <div>
                 <img src={logo} className='w-5/6' alt="logo" />
-                <p>Epic Toys Ltd.<br />Providing best toys since 2004</p>
-                <p>College Road, Chowmuhani, Noakhali</p>
+                <p>Epic Toys Ltd.<br />College Road, Chowmuhani, Noakhali</p>
             </div>
             <div>
                 <span className="footer-title text-[#FF0000]">Services</span>
