@@ -4,7 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -16,16 +16,20 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                const user = result.user;  
+                const user = result.user;
                 console.log(user);
 
             })
             .catch(error => console.log(error));
     }
 
-    
+
     const handleGoogleSignIn = () => {
-        
+        googleSignIn()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => console.log(error))
     }
 
     return (
@@ -56,12 +60,12 @@ const Login = () => {
                             <p className='my-4 text-center'>New here? <Link className='text-[#FF0000] font-bold' to="/register">Register</Link> </p>
                         </form>
                         <div>
-                        <div className="divider">OR</div>
-                        <div className="text-center">
-                            <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline hover:bg-[#dd0505]">
-                                G
-                            </button>
-                        </div>
+                            <div className="divider">OR</div>
+                            <div className="text-center">
+                                <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline hover:bg-[#dd0505]">
+                                    G
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
