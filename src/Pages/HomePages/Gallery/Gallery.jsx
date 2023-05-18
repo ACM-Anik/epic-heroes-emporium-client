@@ -2,7 +2,9 @@
 const Gallery = () => {
     return (
         <div>
-            <h1>Gallery Section</h1>
+            <div className="my-10">
+                <h1 className="text-center text-5xl font-bold">Hero Gallery</h1>
+            </div>
         </div>
     );
 };

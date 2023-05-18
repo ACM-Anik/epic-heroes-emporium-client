@@ -127,7 +127,9 @@ const ShopByCategory = () => {
     return (
         <div className="min-h-[400px]">
             <div className="max-w-lg mx-auto">
-                <h2 className="text-2xl font-semibold mb-4">Shop by Category</h2>
+                <div className="text-center">
+                    <h2 className="text-5xl font-bold mb-4">Shop By Category</h2>
+                </div>
                 <div className="border-b border-gray-300">
                     <ul className="flex">
                         {categories.map((category, index) => (
