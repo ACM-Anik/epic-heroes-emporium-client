@@ -13,8 +13,6 @@ const AllToys = () => {
             })
     }, [])
 
-    // const [allHeros, setAllHeros] = useState([]);
-    // const heros = categories.map(hero => setAllHeros)
 
     return (
         <div className="mb-10">
