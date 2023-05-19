@@ -44,7 +44,7 @@ const NavBar = () => {
     </>
 
     return (
-        <div className="">
+        <div className="shadow-lg shadow-red-100">
             <div className="navbar bg-[#f4f3f0f1] h-20">
                 <div className="navbar-start">
                     <div className="dropdown">

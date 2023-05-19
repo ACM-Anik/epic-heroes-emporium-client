@@ -1,21 +1,96 @@
-import { useContext,  useState } from "react";
+// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// import 'react-tabs/style/react-tabs.css';
+
+// import { useContext } from "react";
+// import { Link } from "react-router-dom";
+// import toast from 'react-hot-toast';
+// import { AuthContext } from "../../../Providers/AuthProvider";
+// import { FaArrowRight } from "react-icons/fa";
+
+// const ShopByCategory = ({ toys }) => {
+//     const { user } = useContext(AuthContext);
+//     const notify = () => {
+//         user ? "" : toast('You have to log-in first to view details!❎');
+//     }
+
+
+//     return (
+//         <div className="min-h-[400px]">
+//             <div className="">
+//                 <div className="text-center">
+//                     <h2 className="text-5xl font-bold my-4">Shop By Category</h2>
+//                 </div>
+//                 <div className="border-b border-gray-300 px-2 md:max-w-lg mx-auto">
+                    
+//                 </div>
+//                 <Tabs>
+//                     <TabList>
+//                         { 
+//                         toys.filter(toy => 
+//                             <Tab key={toy._id}>
+//                                 {toy.category_name}
+//                             </Tab>
+//                             ) 
+//                         }
+//                     </TabList>
+
+//                     {
+//                     toys.map(hero => 
+//                         <TabPanel key={hero._id}>
+//                             <div className="mb-4 rounded shadow-xl p-5">
+//                                     <img src={hero.picture} alt={hero.name} className="w-[400px] lg:h-[400px] mx-auto" />
+//                                     <div className="p-2">
+//                                         <h3 className="text-lg font-semibold">{hero.name}</h3>
+//                                         <p>Price: ${hero.price}</p>
+//                                         <p>Rating: {hero.rating}</p>
+//                                         <Link to={`/singleDetails/${hero.id}`}>
+//                                             <button onClick={notify} className="btn text-white rounded-lg border-0 bg-[#FF0000] hover:bg-[#cb0707] mt-3 gap-1">
+//                                                 View Details <FaArrowRight className="w-6 h-6" />
+//                                             </button>
+//                                         </Link>
+//                                     </div>
+//                                 </div>
+//                         </TabPanel>
+//                         )
+//                     }
+//                 </Tabs>
+               
+//             </div>
+//         </div>
+
+//     );
+// };
+
+// export default ShopByCategory;
+
+
+
+
+import { useContext,  useEffect,  useState } from "react";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FaArrowRight } from "react-icons/fa";
 
-const ShopByCategory = ({ categories }) => {
+const ShopByCategory = ({ toys }) => {
     const { user } = useContext(AuthContext);
     const notify = () => {
         user ? "" : toast('You have to log-in first to view details!❎');
     }
-    
-    const [activeTab, setActiveTab] = useState(0);
 
-    const handleTabClick = (index) => {
-        setActiveTab(index);
-    };
-
+    const categories = ['Marvel', 'DC', 'Star Wars'];
+    const [activeTab, setActiveTab] = useState(categories[0]);
+    // const [catName, setCatName] = useState([]);
+    // const handleTabClick = (name) => {
+    //     setActiveTab(name);
+    //     console.log(name);
+        
+    // };
+    useEffect(() => {
+        // const subCategory = toys.find(toy => toy._id == activeTab);
+        // const single = toys.filter(toy => toy.category_name == subCategory.category_name);
+        // setCatName(single); 
+    }, [toys])
 
     return (
         <div className="min-h-[400px]">
@@ -27,25 +102,28 @@ const ShopByCategory = ({ categories }) => {
                     <ul className="flex gap-4">
                         {categories.map((category, index) => (
                             
-                            <li key={category.category}
-                                className={`py-4 px-10 cursor-pointer ${activeTab === index ? 'border-b-2 font-semibold bg-zinc-100 border-[#FF0000] text-[#FF0000]' : 'text-gray-600 font-semibold'
+                            <li key={index}
+                                className={`py-4 px-10 cursor-pointer ${activeTab == category[index] ? 'border-b-2 font-semibold bg-zinc-100 border-[#FF0000] text-[#FF0000]' : 'text-gray-600 font-semibold'
                                     }`}
-                                onClick={() => handleTabClick(index)}
+                                onClick={() => {
+                                    setActiveTab(category[index]);
+                                    console.log(category[index]);
+                                }}
                             >
-                                {category.category}
+                                {category}
                             </li>
                         ))}
                     </ul>
                 </div>
                 <div className="mt-8">
-                    {categories.map((category, index) => (
+                    {toys.map((hero, index) => (
                         <div
-                            key={category.category}
+                            key={hero._id}
                             className={`${activeTab === index ? 'grid md:grid-cols-3 lg:grid-cols-3 gap-6' : 'hidden'}`}
                         >
-                            {category.heroes.map((hero) => (
-                                <div key={hero.id} className="mb-4 rounded shadow-xl p-5">
-                                    <img src={hero.picture} alt={hero.name} className="w-[400px] md:h-[400px] mx-auto" />
+                            {/* {category.heroes.map((hero) => ( */}
+                                <div key={hero._id} className="mb-4 rounded shadow-xl p-5">
+                                    <img src={hero.picture} alt={hero.name} className="w-[400px] lg:h-[400px] mx-auto" />
                                     <div className="p-2">
                                         <h3 className="text-lg font-semibold">{hero.name}</h3>
                                         <p>Price: ${hero.price}</p>
@@ -57,7 +135,7 @@ const ShopByCategory = ({ categories }) => {
                                         </Link>
                                     </div>
                                 </div>
-                            ))}
+                            {/* ))} */}
                         </div>
                     ))}
                 </div>

@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import SingleToy from "./SingleToy";
 
 const AllToys = () => {
-    const [categories, setCategories] = useState([]);
+    const [allToys, setAllToys] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/categories")
+        fetch("http://localhost:5000/actionToys")
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setCategories(data);
+                setAllToys(data);
             })
     }, [])
 
@@ -35,9 +35,9 @@ const AllToys = () => {
                     </thead>
                     <tbody> 
                         {
-                            categories.map(category => <SingleToy
-                                key={category._id}
-                                category={category}
+                            allToys.map(toys => <SingleToy
+                                key={toys._id}
+                                toys={toys}
                             ></SingleToy>)
                         }
                     </tbody>
