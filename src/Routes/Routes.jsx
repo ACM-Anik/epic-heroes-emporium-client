@@ -35,7 +35,6 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <SingleDetails></SingleDetails>
                 </PrivateRoute>,
-                // loader: ({params}) => fetch('')
             },
             {
                 path: '/myToys',

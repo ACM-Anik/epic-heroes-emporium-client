@@ -27,7 +27,7 @@ const SingleToy = ({ category }) => {
                         <td>{"$" + hero.price}</td>
                         <td>{hero.quantity} pieces</td>
                         <th>
-                            <Link to="/singleDetails">
+                            <Link to={`/singleDetails/${hero.id}`}>
                                 <button className="btn btn-sm text-white rounded-lg border-0 bg-[#FF0000] hover:bg-[#cb0707]">View Details </button>
                             </Link>
                         </th>

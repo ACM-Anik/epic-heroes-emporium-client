@@ -2,17 +2,18 @@ import { useEffect, useState } from "react";
 import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
+import OurCustomerServices from "../OurCustomerServices/OurCustomerServices";
 
 
 const Home = () => {
-    const [categories, setCategories] = useState([]);
+    const [toys, setToys] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/categories")
+        fetch("http://localhost:5000/actionToys")
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
-                setCategories(data);
+                setToys(data);
             })
     }, [])
 
@@ -20,8 +21,9 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <OurCustomerServices></OurCustomerServices>
             <Gallery></Gallery>
-            <ShopByCategory categories={categories}></ShopByCategory>
+            <ShopByCategory toys={toys}></ShopByCategory>
         </div>
     );
 };

@@ -2,18 +2,20 @@ import { useContext,  useState } from "react";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { FaArrowRight } from "react-icons/fa";
 
 const ShopByCategory = ({ categories }) => {
+    const { user } = useContext(AuthContext);
+    const notify = () => {
+        user ? "" : toast('You have to log-in first to view details!❎');
+    }
+    
     const [activeTab, setActiveTab] = useState(0);
 
     const handleTabClick = (index) => {
         setActiveTab(index);
     };
 
-    const { user } = useContext(AuthContext);
-    const notify = () => {
-        user ? "" : toast('You have to log-in first to view details!❎');
-    }
 
     return (
         <div className="min-h-[400px]">
@@ -24,8 +26,8 @@ const ShopByCategory = ({ categories }) => {
                 <div className="border-b border-gray-300 px-2 md:max-w-lg mx-auto">
                     <ul className="flex gap-4">
                         {categories.map((category, index) => (
-                            <li
-                                key={category.category}
+                            
+                            <li key={category.category}
                                 className={`py-4 px-10 cursor-pointer ${activeTab === index ? 'border-b-2 font-semibold bg-zinc-100 border-[#FF0000] text-[#FF0000]' : 'text-gray-600 font-semibold'
                                     }`}
                                 onClick={() => handleTabClick(index)}
@@ -43,17 +45,14 @@ const ShopByCategory = ({ categories }) => {
                         >
                             {category.heroes.map((hero) => (
                                 <div key={hero.id} className="mb-4 rounded shadow-xl p-5">
-                                    <img src={hero.picture} alt={hero.name} className="w-[400px] h-[400px] mx-auto" />
+                                    <img src={hero.picture} alt={hero.name} className="w-[400px] md:h-[400px] mx-auto" />
                                     <div className="p-2">
                                         <h3 className="text-lg font-semibold">{hero.name}</h3>
                                         <p>Price: ${hero.price}</p>
                                         <p>Rating: {hero.rating}</p>
-                                        <p>Seller: {hero.seller}</p>
-                                        <p>Quantity: {hero.quantity}</p>
-
                                         <Link to={`/singleDetails/${hero.id}`}>
-                                            <button onClick={notify} className="btn text-white rounded-lg border-0 bg-[#FF0000] hover:bg-[#cb0707] mt-3">
-                                                View Details
+                                            <button onClick={notify} className="btn text-white rounded-lg border-0 bg-[#FF0000] hover:bg-[#cb0707] mt-3 gap-1">
+                                                View Details <FaArrowRight className="w-6 h-6" />
                                             </button>
                                         </Link>
                                     </div>
