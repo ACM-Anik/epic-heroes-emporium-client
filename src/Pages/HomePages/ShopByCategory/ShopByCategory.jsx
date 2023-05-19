@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useContext,  useState } from "react";
+import { Link } from "react-router-dom";
+import toast from 'react-hot-toast';
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const ShopByCategory = ({ categories }) => {
     const [activeTab, setActiveTab] = useState(0);
@@ -6,11 +9,17 @@ const ShopByCategory = ({ categories }) => {
     const handleTabClick = (index) => {
         setActiveTab(index);
     };
+
+    const { user } = useContext(AuthContext);
+    const notify = () => {
+        user ? "" : toast('You have to log-in first to view details!❎');
+    }
+
     return (
         <div className="min-h-[400px]">
             <div className="">
                 <div className="text-center">
-                    <h2 className="text-5xl font-bold my-4">Shop by Category</h2>
+                    <h2 className="text-5xl font-bold my-4">Shop By Category</h2>
                 </div>
                 <div className="border-b border-gray-300 px-2 md:max-w-lg mx-auto">
                     <ul className="flex gap-4">
@@ -41,10 +50,12 @@ const ShopByCategory = ({ categories }) => {
                                         <p>Rating: {hero.rating}</p>
                                         <p>Seller: {hero.seller}</p>
                                         <p>Quantity: {hero.quantity}</p>
-                                        <p>{hero.description}</p>
-                                        <button className="btn text-white rounded-lg border-0 bg-[#FF0000] hover:bg-[#cb0707] mt-3">
-                                            View Details
-                                        </button>
+
+                                        <Link to={`/singleDetails/${hero.id}`}>
+                                            <button onClick={notify} className="btn text-white rounded-lg border-0 bg-[#FF0000] hover:bg-[#cb0707] mt-3">
+                                                View Details
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             ))}

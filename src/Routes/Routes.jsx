@@ -9,6 +9,7 @@ import AddAtoy from "../Pages/AddAToy/AddAtoy";
 import Login from "../Pages/LoginForm/Login";
 import Register from "../Pages/LoginForm/Register";
 import PrivateRoute from "./PrivateRoute";
+import SingleDetails from "../Pages/SingleDetails/SingleDetails";
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,13 @@ const router = createBrowserRouter([
             {
                 path: '/allToys',
                 element: <AllToys></AllToys>
+            },
+            {
+                path: '/singleDetails/:id',
+                element: <PrivateRoute>
+                    <SingleDetails></SingleDetails>
+                </PrivateRoute>,
+                // loader: ({params}) => fetch('')
             },
             {
                 path: '/myToys',
