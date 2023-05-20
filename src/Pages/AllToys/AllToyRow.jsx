@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-const SingleToy = ({ toys }) => {
+const AllToyRow = ({ toys }) => {
     const { _id, picture, toy_name, seller_name, category_name, price, quantity} = toys;
     console.log(toys);
 
 
     return (
         <>
-            <tr key={_id}>
+            <tr>
                 <td>
                     <div className="avatar">
                         <div className="rounded w-24 h-24">
@@ -34,4 +34,4 @@ const SingleToy = ({ toys }) => {
     );
 };
 
-export default SingleToy;
+export default AllToyRow;

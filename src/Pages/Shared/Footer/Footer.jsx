@@ -1,12 +1,12 @@
 import logo from '../../../assets/logo.png';
 const Footer = () => {
     return (
-        <footer className="footer py-10 px-5 bg-base-200 text-base-content">
+        <footer className="footer py-8 px-6 lg:px-10 bg-base-200 text-base-content ">
             <div>
-                <img src={logo} className='w-5/6' alt="logo" />
-                <p>Epic Toys Ltd.<br />College Road, Chowmuhani, Noakhali</p>
+                <img src={logo} className='w-8/12' alt="logo" />
+                <p className='font-semibold'>Epic Toys Ltd.<br />College Road, Chowmuhani, Noakhali.</p>
             </div>
-            <div>
+            <div className='font-semibold'>
                 <span className="footer-title text-[#FF0000]">Services</span>
                 <a href="#" className="link link-hover">Design</a>
                 <a href="#" className="link link-hover">Marketing</a>
@@ -17,14 +17,14 @@ const Footer = () => {
                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current text-[#0059ff]"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
                 </div>
             </div>
-            <div>
+            <div className='font-semibold'>
                 <span className="footer-title text-[#FF0000]">Company</span>
                 <a href="#" className="link link-hover">About us</a>
                 <a href="#" className="link link-hover">Contact</a>
                 <p>Email: epicHeros@gmail.com</p>
                 <p>Phone: 0179474****</p>
             </div>
-            <div>
+            <div className='font-semibold'>
                 <span className="footer-title text-[#FF0000]">Legal</span>
                 <a href="#" className="link link-hover">Terms of use</a>
                 <a href="#" className="link link-hover">Privacy policy</a>
