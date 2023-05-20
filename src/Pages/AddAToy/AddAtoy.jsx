@@ -8,21 +8,21 @@ const AddAtoy = () => {
     const handleAddToy = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
+        const toy_name = form.name.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const quantity = form.quantity.value;
-        const sellerEmail = form.sellerEmail.value;
-        const category = form.category.value;
-        const sellerName = form.seller.value;
-        const details = form.details.value;
-        const photo = form.photo.value;
+        const seller_email = form.sellerEmail.value;
+        const category_name = form.category.value;
+        const seller_name = form.seller.value;
+        const description = form.details.value;
+        const picture = form.photo.value;
 
-        const newToy = { name, price, rating, quantity, sellerEmail, sellerName, category, details, photo }
+        const newToy = { toy_name, picture, price, rating, quantity, seller_email, seller_name, category_name, description }
 
         console.log(newToy);
 
-        fetch('http://localhost:5000/actionToys', {
+        fetch('https://epic-heroes-emporium.vercel.app/actionToys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -35,9 +35,9 @@ const AddAtoy = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Coffee Added Successfully',
+                        text: 'Toy Added Successfully',
                         icon: 'success',
-                        confirmButtonText: 'Cool'
+                        confirmButtonText: 'Done'
                     })
                 }
             })

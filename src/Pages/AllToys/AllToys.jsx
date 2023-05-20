@@ -15,12 +15,14 @@ const AllToys = () => {
     }, [])
 
     const handleSearch = () => {
-        fetch(`https://epic-heroes-emporium.vercel.app/toySearchByName/${search}`)
+        if(search){
+            fetch(`https://epic-heroes-emporium.vercel.app/toySearchByName/${search}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 setAllToys(data);
             })
+        }
     }
 
 

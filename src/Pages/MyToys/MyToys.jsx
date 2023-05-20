@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import MyToyRow from "./MyToyRow";
-
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 
@@ -21,7 +21,34 @@ const MyToys = () => {
 
 
     const handleDelete = (_id) => {
-            console.log(_id);
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3bd630',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`https://epic-heroes-emporium.vercel.app/myToys/${_id}`, {
+                        method: 'DELETE',
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            if (data.deletedCount > 0) {
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your Coffee has been deleted.',
+                                    'success'
+                                )
+                                const remaining = myToys.filter(toy => toy._id !==  _id);
+                                setMyToys(remaining);
+                            }
+                        })
+                }
+            })
     }
 
     return (
