@@ -9,7 +9,7 @@ const Home = () => {
     const [toys, setToys] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/actionToys")
+        fetch("https://epic-heroes-emporium.vercel.app/actionToys")
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

@@ -35,6 +35,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <SingleDetails></SingleDetails>
                 </PrivateRoute>,
+                loader: ({params}) => fetch(`https://epic-heroes-emporium.vercel.app/actionToys/${params.id}`)
             },
             {
                 path: '/myToys',

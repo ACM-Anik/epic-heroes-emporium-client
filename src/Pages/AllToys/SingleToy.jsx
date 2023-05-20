@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const SingleToy = ({ toys }) => {
-    const { _id, picture, name, seller, category_name, price, quantity} = toys;
+    const { _id, picture, toy_name, seller_name, category_name, price, quantity} = toys;
     console.log(toys);
 
 
@@ -17,8 +17,8 @@ const SingleToy = ({ toys }) => {
                         </div>
                     </div>
                 </td>
-                <td>{seller}</td>
-                <td>{name}</td>
+                <td>{seller_name}</td>
+                <td>{toy_name}</td>
                 <td>
                     {category_name}
                 </td>
