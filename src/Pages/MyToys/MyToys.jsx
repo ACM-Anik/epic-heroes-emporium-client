@@ -31,7 +31,7 @@ const MyToys = () => {
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`https://epic-heroes-emporium.vercel.app/myToys/${_id}`, {
+                    fetch(`https://epic-heroes-emporium.vercel.app/actionToys/${_id}`, {
                         method: 'DELETE',
                     })
                         .then(res => res.json())
@@ -40,7 +40,7 @@ const MyToys = () => {
                             if (data.deletedCount > 0) {
                                 Swal.fire(
                                     'Deleted!',
-                                    'Your Coffee has been deleted.',
+                                    'Your Toy has been deleted.',
                                     'success'
                                 )
                                 const remaining = myToys.filter(toy => toy._id !==  _id);

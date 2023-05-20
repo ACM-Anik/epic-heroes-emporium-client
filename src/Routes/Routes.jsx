@@ -10,6 +10,7 @@ import Login from "../Pages/LoginForm/Login";
 import Register from "../Pages/LoginForm/Register";
 import PrivateRoute from "./PrivateRoute";
 import SingleDetails from "../Pages/SingleDetails/SingleDetails";
+import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,13 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyToys></MyToys>
                 </PrivateRoute>
+            },
+            {
+                path: '/updateToy/:id',
+                element: <PrivateRoute>
+                    <UpdateToy></UpdateToy>
+                </PrivateRoute>,
+                loader: ({params}) => fetch(`https://epic-heroes-emporium.vercel.app/actionToys/${params.id}`)
             },
             {
                 path: '/addAToy',
