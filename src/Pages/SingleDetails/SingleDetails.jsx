@@ -9,8 +9,8 @@ const SingleDetails = () => {
     return (
         <div>
             <div className="hero md:min-h-screen bg-base-200">
-                <div className="p-10 md:p-20 grid lg:grid-cols-2 ">
-                    <img src={picture} className="lg:max-w-lg rounded-lg shadow-2xl" />
+                <div className="p-10 md:p-20 lg:px-36 grid lg:grid-cols-2 items-center">
+                    <img src={picture} className="lg:w-[420px] lg:h-[400px] rounded-lg shadow-2xl" />
                     <div>
                         <h1 className="text-4xl font-bold">{toy_name}</h1>
                         <p className="font-semibold text-base py-2">{description}</p>
