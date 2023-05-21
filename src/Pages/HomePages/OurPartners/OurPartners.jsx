@@ -14,7 +14,7 @@ const OurPartners = () => {
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3' data-aos="fade-left"
                 data-aos-anchor="#example-anchor"
                 data-aos-offset="500"
-                data-aos-duration="800">
+                data-aos-duration="500">
                 <div><img src={partner1} alt="" className='border-2 shadow rounded-lg hover:border-red-200' /></div>
                 <div><img src={partner2} alt="" className='border-2 shadow rounded-lg hover:border-red-200' /></div>
                 <div><img src={partner3} alt="" className='border-2 shadow rounded-lg hover:border-red-200' /></div>
