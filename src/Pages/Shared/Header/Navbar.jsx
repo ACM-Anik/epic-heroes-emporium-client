@@ -29,7 +29,7 @@ const NavBar = () => {
                 <li className="font-bold"><NavLink to="/myToys">My Toys</NavLink></li>
                 <li className="font-bold"><NavLink to="/addAToy">Add A Toy</NavLink></li>
             </>
-        }   
+        }
     </>
 
     const navIcons = <>
@@ -70,38 +70,41 @@ const NavBar = () => {
 
                     {
                         user ?
-                        <div className="dropdown dropdown-end">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar border border-[#FF0000]">
-                                {
-                                    user?.photoURL ?
-                                    <div className="w-10 rounded-full">
-                                        <a
-                                            data-tooltip-id="my-tooltip"
-                                            data-tooltip-content={user?.displayName}
-                                            data-tooltip-place="left"
-                                            className="avatar">
-                                            <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                                <img src={user?.photoURL} alt='profile' />
-                                            </div>
+                            <div className="dropdown dropdown-end">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar border border-[#FF0000]">
+                                    {
+                                        user &&
+                                        <div className="w-10 rounded-full">
+                                            <a
+                                                data-tooltip-id="my-tooltip"
+                                                data-tooltip-content={user?.displayName}
+                                                data-tooltip-place="left"
+                                                className="avatar">
+                                                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                                    {
+                                                        user?.photoURL?
+                                                        <img src={user?.photoURL} alt='profile' />
+                                                        :
+                                                        <button className="btn btn-circle rounded-full  text-xs">Profile</button>
+                                                    }
+                                                </div>
+                                            </a>
+                                            <Tooltip id="my-tooltip" />
+                                        </div>
+                                    }
+                                </label>
+                                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <a className="justify-between hover:bg-[#d80404] hover:text-white hover:border-[#FF0000]">
+                                            Profile
+                                            <span className="badge">New</span>
                                         </a>
-                                        <Tooltip id="my-tooltip" />
-                                    </div>
-                                    :
-                                    <button className="btn btn-circle rounded-full  text-xs">Profile</button>
-                                }
-                            </label>
-                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                <li>
-                                    <a className="justify-between hover:bg-[#d80404] hover:text-white hover:border-[#FF0000]">
-                                        Profile
-                                        <span className="badge">New</span>
-                                    </a>
-                                </li>
-                                <li><button onClick={handleLogOut} className="btn-sm ps-4 font-semibold text-center btn-outline text-[#FF0000] border-[#FF0000] hover:bg-[#d60606] hover:border-[#FF0000]">Logout</button></li>
-                            </ul>
-                        </div>
-                        :
-                        <button className="btn btn-outline text-[#FF0000] rounded-lg border-[#FF0000] hover:border-[#FF0000] hover:bg-[#d60909]"><Link to="/login">Login</Link></button>
+                                    </li>
+                                    <li><button onClick={handleLogOut} className="btn-sm ps-4 font-semibold text-center btn-outline text-[#FF0000] border-[#FF0000] hover:bg-[#d60606] hover:border-[#FF0000]">Logout</button></li>
+                                </ul>
+                            </div>
+                            :
+                            <button className="btn btn-outline text-[#FF0000] rounded-lg border-[#FF0000] hover:border-[#FF0000] hover:bg-[#d60909]"><Link to="/login">Login</Link></button>
                     }
                 </div>
             </div>

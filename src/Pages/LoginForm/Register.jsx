@@ -3,6 +3,7 @@ import bg from '../../assets/background.jpg';
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Helmet } from "react-helmet";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -43,12 +44,26 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, {replace: true});
+                form.reset();
+                updateUserData(user, name, photo);
             })
             .catch(error => {
                 console.log(error);
                 setError(error.message);
             })
 
+    }
+
+    const updateUserData = (user, name, photo) =>{
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photo
+        })
+        .then(()=>{ })
+        .catch(error => {
+            setError(error.message);
+        }
+     );
     }
 
     return (
