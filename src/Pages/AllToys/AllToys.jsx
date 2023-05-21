@@ -43,7 +43,8 @@ const AllToys = () => {
                 <button onClick={handleSearch} className="btn btn-outline text-[#FF0000] rounded-lg border-[#FF0000]  hover:bg-[#cb0707]">Search</button>
             </div>
 
-            <div className="overflow-x-auto w-full">
+            <div className="overflow-x-auto w-full" data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom">
                 <table className="table w-full bg-slate-100">
                     <thead>
                         <tr>

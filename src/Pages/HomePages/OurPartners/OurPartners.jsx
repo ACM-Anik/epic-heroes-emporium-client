@@ -11,7 +11,10 @@ const OurPartners = () => {
             <div className='text-center my-10'>
                 <h2 className='text-4xl md:text-5xl font-bold'>Our Partners</h2>
             </div>
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3' data-aos="fade-left"
+                data-aos-anchor="#example-anchor"
+                data-aos-offset="500"
+                data-aos-duration="800">
                 <div><img src={partner1} alt="" className='border-2 shadow rounded-lg hover:border-red-200' /></div>
                 <div><img src={partner2} alt="" className='border-2 shadow rounded-lg hover:border-red-200' /></div>
                 <div><img src={partner3} alt="" className='border-2 shadow rounded-lg hover:border-red-200' /></div>
