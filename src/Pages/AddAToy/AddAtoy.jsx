@@ -39,8 +39,11 @@ const AddAtoy = () => {
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })
+                
                 }
+                
             })
+            form.reset();
     }
 
     return (

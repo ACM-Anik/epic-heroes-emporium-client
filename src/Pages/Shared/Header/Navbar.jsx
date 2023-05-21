@@ -21,13 +21,13 @@ const NavBar = () => {
     }
 
     const navItems = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/blog">Blog</NavLink></li>
-        <li><NavLink to="/allToys">All Toys</NavLink></li>
+        <li className="font-bold"><NavLink to="/">Home</NavLink></li>
+        <li className="font-bold"><NavLink to="/blog">Blog</NavLink></li>
+        <li className="font-bold"><NavLink to="/allToys">All Toys</NavLink></li>
         {
             user && <>
-                <li><NavLink to="/myToys">My Toys</NavLink></li>
-                <li><NavLink to="/addAToy">Add A Toy</NavLink></li>
+                <li className="font-bold"><NavLink to="/myToys">My Toys</NavLink></li>
+                <li className="font-bold"><NavLink to="/addAToy">Add A Toy</NavLink></li>
             </>
         }   
     </>

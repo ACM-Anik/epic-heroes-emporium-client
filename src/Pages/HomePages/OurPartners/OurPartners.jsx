@@ -7,9 +7,9 @@ import partner6 from '../../../assets/Companies/heman-logo.avif';
 
 const OurPartners = () => {
     return (
-        <div className='my-16'>
+        <div className='my-16 p-4'>
             <div className='text-center my-10'>
-                <h2 className='text-5xl font-bold'>Our Partners</h2>
+                <h2 className='text-4xl md:text-5xl font-bold'>Our Partners</h2>
             </div>
             <div className='grid grid-cols-6 gap-3'>
                 <div><img src={partner1} alt="" className='border-2 shadow rounded-lg hover:border-red-200' /></div>
