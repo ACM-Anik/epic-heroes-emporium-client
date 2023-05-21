@@ -1,5 +1,5 @@
 import img1 from '../../../assets/gallery/galley-1.jpg';
-import img2 from '../../../assets/gallery/gallery-2.jpg';
+import img2 from '../../../assets/gallery/gallery-2.png';
 import img3 from '../../../assets/gallery/gallery-3.jpg';
 import img4 from '../../../assets/gallery/gallery-4.jpg';
 import img5 from '../../../assets/gallery/gallery-5.jpg';
@@ -17,7 +17,7 @@ const Gallery = () => {
                 <p className='text-base font-semibold'>Explore our Epic Heroes Gallery, all famous and best seller epic toys we have.</p>
             </div>
             <div>
-                <div className='grid lg:grid-cols-3 gap-4 lg:px-32'>
+                <div className='grid lg:grid-cols-3 gap-4 lg:px-28'>
                     <img src={img1} className='rounded-lg object-cover shadow-lg p-4 w-full max-h-80 lg:h-full ' alt="" />
                     <img src={img2} className='rounded-lg object-cover shadow-lg p-4 w-full max-h-80 lg:h-full ' alt="" />
                     <img src={img3} className='rounded-lg object-cover shadow-lg p-4 w-full  lg:h-full row-span-2' alt="" />
