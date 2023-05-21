@@ -1,4 +1,4 @@
-import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const UpdateToy = () => {
@@ -37,7 +37,7 @@ const UpdateToy = () => {
                         icon: 'success',
                         confirmButtonText: 'Done'
                       })
-                      navigate("/myToys");
+                      navigate("/myToys", {replace: true});
                 }
             })
     }

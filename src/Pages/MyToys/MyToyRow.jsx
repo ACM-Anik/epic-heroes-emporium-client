@@ -11,11 +11,14 @@ const MyToyRow = ({ toys, handleDelete }) => {
         category_name,
         price, rating,
         quantity,
-        // description
+        description
     } = toys;
     console.log(toys);
 
-
+    const MAX_DESCRIPTION_LENGTH = 15;
+    const truncatedDescription = description.length > MAX_DESCRIPTION_LENGTH
+    ? description.slice(0, MAX_DESCRIPTION_LENGTH) + '...'
+    : description;
 
     return (
         <>
@@ -30,17 +33,9 @@ const MyToyRow = ({ toys, handleDelete }) => {
                     </div>
                 </td>
                 <td>{toy_name}</td>
-                {/* <td className="w-1/5">
-                    {
-                        description.length > 50
-                        ? 
-                        description.slice(0, 50) + '...'
-                        : 
-                        description
-                    }
-                </td> */}
-                <td>
-                    {category_name}
+                <td>{category_name}</td>
+                <td className="description-cell overflow-hidden whitespace-nowrap">
+                    {truncatedDescription}
                 </td>
                 <td>{"$" + price}</td>
                 <td>{rating}</td>

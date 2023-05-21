@@ -66,11 +66,11 @@ const MyToys = () => {
                                     <tr>
                                         <th>Image</th>
                                         <th>Toy Name</th>
-                                        {/* <th>Details</th> */}
                                         <th>Category</th>
+                                        <th>Description</th>
                                         <th>price</th>
                                         <th>Rating</th>
-                                        <th>Available Quantity</th>
+                                        <th>Quantity</th>
                                         <th>Seller</th>
                                         <th>Seller Email</th>
                                         <th>Update</th>
