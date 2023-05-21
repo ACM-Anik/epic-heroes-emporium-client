@@ -10,7 +10,6 @@ const AllToys = () => {
         fetch("https://epic-heroes-emporium.vercel.app/actionToys")
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setAllToys(data);
             })
     }, [])
@@ -20,7 +19,6 @@ const AllToys = () => {
             fetch(`https://epic-heroes-emporium.vercel.app/toySearchByName/${search}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setAllToys(data);
             })
         }

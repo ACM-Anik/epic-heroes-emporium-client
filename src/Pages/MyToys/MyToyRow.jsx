@@ -13,7 +13,6 @@ const MyToyRow = ({ toys, handleDelete }) => {
         quantity,
         description
     } = toys;
-    console.log(toys);
 
     const MAX_DESCRIPTION_LENGTH = 15;
     const truncatedDescription = description.length > MAX_DESCRIPTION_LENGTH
