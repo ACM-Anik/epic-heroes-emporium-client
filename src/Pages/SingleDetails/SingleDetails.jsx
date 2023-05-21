@@ -9,7 +9,7 @@ const SingleDetails = () => {
     return (
         <div>
             <div className="hero md:min-h-screen bg-base-200">
-                <div className="p-10 md:p-20 lg:px-36 grid lg:grid-cols-2 items-center">
+                <div className="p-10 md:p-20 lg:px-32 grid lg:grid-cols-2 gap-8 items-center">
                     <img src={picture} className="lg:w-[420px] lg:h-[400px] rounded-lg shadow-2xl" />
                     <div>
                         <h1 className="text-4xl font-bold">{toy_name}</h1>

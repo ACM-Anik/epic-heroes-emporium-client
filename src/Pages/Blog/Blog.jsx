@@ -1,7 +1,12 @@
+import { Helmet } from "react-helmet";
 
 const Blog = () => {
     return (
         <div className="my-16">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog-Epic Heroes Emporium</title>
+            </Helmet>
             <div className="my-10 text-center bg-zinc-100 py-4 shadow-lg shadow-red-100 ">
                 <h2 className="text-4xl md:text-5xl font-bold"> <span className="text-[#FF0000]">Frequently</span> Asked Questions</h2>
             </div>

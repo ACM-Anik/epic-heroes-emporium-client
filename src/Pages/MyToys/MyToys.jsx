@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import MyToyRow from "./MyToyRow";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet";
 
 
 const MyToys = () => {
@@ -53,6 +54,10 @@ const MyToys = () => {
 
     return (
         <>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>My Toys-Epic Heroes Emporium</title>
+        </Helmet>
             {
                 myToys ?
                     <div className="my-16">

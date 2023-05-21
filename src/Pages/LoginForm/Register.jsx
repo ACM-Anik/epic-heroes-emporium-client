@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import bg from '../../assets/background.jpg';
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -52,6 +53,10 @@ const Register = () => {
 
     return (
         <div className="hero min-h-screen " style={{backgroundImage: `url(${bg})`}}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Register-Epic Heroes Emporium</title>
+            </Helmet>
             <div className="hero-content w-96">
                 
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

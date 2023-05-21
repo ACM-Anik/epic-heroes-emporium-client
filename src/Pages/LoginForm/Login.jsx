@@ -3,6 +3,7 @@ import bg from '../../assets/background.jpg';
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
+import {Helmet} from "react-helmet";
 
 const Login = () => {
     const [success, setSuccess] = useState('');
@@ -51,6 +52,10 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen" style={{ backgroundImage: `url(${bg})` }}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Login-Epic Heroes Emporium</title>
+            </Helmet>
             <div className="hero-content w-96">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">

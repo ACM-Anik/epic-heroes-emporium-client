@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../../Providers/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const AddAtoy = () => {
     const { user } =useContext(AuthContext);
@@ -40,14 +41,17 @@ const AddAtoy = () => {
                         confirmButtonText: 'Done'
                     })
                 
-                }
-                
+                }  
+                form.reset();
             })
-            form.reset();
     }
 
     return (
         <div className='bg-red-100 p-6 mb-10'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Add A Toy-Epic Heroes Emporium</title>
+            </Helmet>
             <div className='text-center '>
                 <h2 className="text-5xl font-extrabold">Add Toys</h2>
                 <p className='text-base font-semibold w-3/4 lg:w-2/4 mx-auto my-3'>Here you can add any action-toy product to the website for sell by fill-up all these following information fields.</p>

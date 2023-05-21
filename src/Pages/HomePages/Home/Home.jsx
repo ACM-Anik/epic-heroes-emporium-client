@@ -4,6 +4,7 @@ import Gallery from "../Gallery/Gallery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 import OurCustomerServices from "../OurCustomerServices/OurCustomerServices";
 import OurPartners from "../OurPartners/OurPartners";
+import { Helmet } from "react-helmet";
 
 
 const Home = () => {
@@ -21,6 +22,10 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Home-Epic Heroes Emporium</title>
+            </Helmet>
             <Banner></Banner>
             <OurCustomerServices></OurCustomerServices>
             <Gallery></Gallery>

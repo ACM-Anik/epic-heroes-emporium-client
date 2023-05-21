@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
@@ -44,6 +45,10 @@ const UpdateToy = () => {
 
     return (
         <div className='bg-red-100 p-6 mb-10'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Update Toy-Epic Heroes Emporium</title>
+            </Helmet>
             <div className='text-center '>
                 <h2 className="text-5xl font-extrabold">Update Toys</h2>
                 <p className='text-base font-semibold w-3/4 lg:w-2/4 mx-auto my-3'>Here you can add any action-toy product to the website for sell by fill-up all these following information fields.</p>
